@@ -1,7 +1,5 @@
 package com.ohgiraffers.teamfour.employee.common.jdbc;
 
-
-
 import com.ohgiraffers.teamfour.employee.common.config.ConfigLocation;
 
 import java.io.FileReader;
