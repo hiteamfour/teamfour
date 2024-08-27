@@ -13,6 +13,7 @@ public class EmployeeService {
 
     public EmployeeService() { empDAO = new EmployeeDAO(); }
 
+    /* 사원번호로 직원정보 조회 */
     public EmployeeDTO selectOneEmpById(String empId) {
 
         /* Connection 생성 */
