@@ -65,6 +65,7 @@ public class EmployeeDAO {
     }
 
 
+    /* 설명. insert 과정*/
     public String selectNewEmpId(Connection con) {
         PreparedStatement pstmt = null;
         ResultSet rset = null;
