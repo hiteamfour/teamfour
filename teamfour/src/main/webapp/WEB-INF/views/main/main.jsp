@@ -85,8 +85,8 @@
     <!-- 직원 전체 정보 조회 -->
     <section id="section1">
         <h3 class="section-title">1. 직원 전체 정보 조회</h3>
-        <p>${pageContext.servletContext.contextPath}</p>
-        <p>(퇴사하지 않은 직원만 조회할 것) : GET /employee/list</p>
+<%--        <p>${pageContext.servletContext.contextPath}</p>--%>
+        <p>단, 퇴사한 직원은 조회 되지 않습니다.</p>
         <button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/employee/list'">전체 직원정보 조회하기</button>
     </section>
 
@@ -109,7 +109,7 @@
     <!-- 신규 직원 정보 추가 -->
     <section id="section3">
         <h3 class="section-title">3. 신규 직원 정보 추가</h3>
-        <p>(필요한 정보를 입력받을 수 있는 form을 만들어서 추가할 것) : POST /employee/insert</p>
+        <p>신규 직원의 정보를 하단에 입력해주세요.</p>
         <form action="${pageContext.servletContext.contextPath}/employee/insert" method="post">
             <div class="form-group">
                 <label for="empName">직원명:</label>
@@ -125,7 +125,7 @@
             </div>
             <div class="form-group">
                 <label for="phone">전화번호:</label>
-                <input type="tel" name="phone" class="form-control" placeholder="전화번호 입력">
+                <input type="tel" name="phone" class="form-control" placeholder="하이픈'-'없이 번호만 입력">
             </div>
             <div class="form-group">
                 <label for="deptCode">부서코드:</label>
@@ -189,14 +189,13 @@
     <!-- 직원 정보 수정 -->
     <section id="section4">
         <h3 class="section-title">4. 직원 정보 수정</h3>
-        <p>(사번과 변경할 정보를 입력 받아 사번과 일치하는 사원의 정보 변경 - 원하는 데이터 변경) : POST /employee/update</p>
+        <p>재직 상태가 퇴사로 변경 됩니다.</p>
         <form action="${pageContext.servletContext.contextPath}/employee/update" method="post">
             <div class="form-group">
                 <label for="empId">사번:</label>
                 <input type="text" name="empId" class="form-control" placeholder="사번 입력">
             </div>
             <div class="form-group">
-                <label for="entDate">퇴사일:</label>
                 <label for="entDate">퇴사일:</label>
                 <input type="date" name="entDate" class="form-control">
             </div>
@@ -209,7 +208,7 @@
     <!-- 직원 정보 삭제 -->
     <section id="section5">
         <h3 class="section-title">5. 직원 정보 삭제</h3>
-        <p>(사번 입력 받아 사번과 일치하는 행 삭제) : POST /employee/delete</p>
+        <p>정보를 삭제할 직원의 사번을 입력하세요.</p>
         <form action="${pageContext.servletContext.contextPath}/employee/delete" method="post">
             <div class="form-group">
                 <label for="empId">사번:</label>
