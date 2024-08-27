@@ -35,6 +35,31 @@
         )
     </entry>
 
+    <entry key="selectAllEmpList">
+        SELECT
+        EMP_ID,
+        EMP_NAME,
+        EMAIL,
+        EMP_NO,
+        PHONE,
+        DEPT_CODE,
+        JOB_CODE,
+        SAL_LEVEL,
+        SALARY,
+        BONUS,
+        MANAGER_ID,
+        HIRE_DATE,
+        ENT_DATE,
+        ENT_YN
+        FROM TBL_EMPLOYEE
+        WHERE ENT_YN = 'N'
+    </entry>
+
+    <entry key="deleteEmp">
+        DELETE
+        FROM TBL_EMPLOYEE
+        WHERE EMP_ID = ?
+    </entry>
     <!-- update 쿼리 -->
     <entry key="updateEmp">
         UPDATE

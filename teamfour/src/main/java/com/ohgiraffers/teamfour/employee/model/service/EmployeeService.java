@@ -4,6 +4,10 @@ import com.ohgiraffers.teamfour.employee.model.dao.EmployeeDAO;
 import com.ohgiraffers.teamfour.employee.model.dto.EmployeeDTO;
 
 import java.sql.Connection;
+import java.util.List;
+
+import static com.ohgiraffers.teamfour.employee.common.jdbc.JDBCTemplate.close;
+import static com.ohgiraffers.teamfour.employee.common.jdbc.JDBCTemplate.getConnection;
 
 import static com.ohgiraffers.teamfour.employee.common.jdbc.JDBCTemplate.*;
 
@@ -11,7 +15,38 @@ public class EmployeeService {
 
     private final EmployeeDAO empDAO;
 
-    public EmployeeService() { empDAO = new EmployeeDAO(); }
+    public EmployeeService() {
+        empDAO = new EmployeeDAO();
+    }
+
+
+    /* 직원 정보 전체 조회용 메소드 */
+    public List<EmployeeDTO> selectAllEmp() {
+
+        Connection con = getConnection();
+        List<EmployeeDTO> empList = empDAO.selectAllEmpList(con);
+
+        close(con);
+
+        return empList;
+    }
+
+    public int deleteEmp(String empId) {
+
+        Connection con = getConnection();
+
+        int result = empDAO.deleteEmp(con, empId);
+
+        if (result > 0) {
+            commit(con);
+        } else {
+            rollback(con);
+        }
+
+        close(con);
+
+        return result;
+    }
 
     /* 사원번호로 직원정보 조회 */
     public EmployeeDTO selectOneEmpById(String empId) {

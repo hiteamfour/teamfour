@@ -19,13 +19,13 @@ public class SelectAllEmpServlet extends HttpServlet {
         EmployeeService empService = new EmployeeService();
         List<EmployeeDTO> empList = empService.selectAllEmp();
 
-        for(EmployeeDTO emp : empList) {
+        for (EmployeeDTO emp : empList) {
             System.out.println(emp);
         }
 
         /* 조회 결과 성공 여부에 따른 뷰 결정 */
         String path = "";
-        if(empList != null) {
+        if (empList != null) {
             path = "/WEB-INF/views/employee/employeeList.jsp";
             request.setAttribute("empList", empList);
         } else {
@@ -36,3 +36,4 @@ public class SelectAllEmpServlet extends HttpServlet {
         request.getRequestDispatcher(path).forward(request, response);
 
     }
+}
