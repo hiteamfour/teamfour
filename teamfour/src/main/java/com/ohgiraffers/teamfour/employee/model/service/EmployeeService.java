@@ -61,6 +61,7 @@ public class EmployeeService {
         close(con);
 
         /* 조회 결과를 반환한다. */
+        System.out.println(selectedEmp);
         return selectedEmp;
     }
 

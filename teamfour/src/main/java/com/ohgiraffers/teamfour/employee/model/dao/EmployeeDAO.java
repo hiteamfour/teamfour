@@ -60,6 +60,7 @@ public class EmployeeDAO {
             close(pstmt);
         }
 
+        System.out.println(selectedEmp);
         return selectedEmp;
     }
 
