@@ -55,11 +55,6 @@
         WHERE ENT_YN = 'N'
     </entry>
 
-    <entry key="deleteEmp">
-        DELETE
-        FROM TBL_EMPLOYEE
-        WHERE EMP_ID = ?
-    </entry>
     <!-- update 쿼리 -->
     <entry key="updateEmp">
         UPDATE
@@ -70,6 +65,13 @@
         WHERE
         emp_id = ?
     </entry>
+
+    <entry key="deleteEmp">
+        DELETE
+        FROM TBL_EMPLOYEE
+        WHERE EMP_ID = ?
+    </entry>
+
 
 
 </properties>
