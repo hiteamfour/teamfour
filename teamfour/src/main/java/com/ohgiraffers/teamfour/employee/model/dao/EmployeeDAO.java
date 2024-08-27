@@ -124,4 +124,27 @@ public class EmployeeDAO {
 
         return result;
     }
+
+    /* update 메소드 */
+    public int updateEmp(Connection con, EmployeeDTO emp) {
+
+        PreparedStatement pstmt = null;
+
+        int result = 0;
+
+        String query = prop.getProperty("updateEmp");
+
+        try {
+            pstmt = con.prepareStatement(query);
+            pstmt.setDate(1, emp.getEntDate());
+            pstmt.setString(2, emp.getEmpId());
+
+            result = pstmt.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return result;
+    }
 }

@@ -35,5 +35,16 @@
         )
     </entry>
 
+    <!-- update 쿼리 -->
+    <entry key="updateEmp">
+        UPDATE
+        tbl_employee
+        SET
+        ent_date = ?,
+        ent_yn = 'Y'
+        WHERE
+        emp_id = ?
+    </entry>
+
 
 </properties>

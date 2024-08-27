@@ -62,6 +62,22 @@ public class EmployeeService {
         return result;
     }
 
+    /* update 메소드 */
+    public int updateEmp(EmployeeDTO emp) {
 
+        Connection con = getConnection();
+
+        int result = empDAO.updateEmp(con, emp);
+
+        if(result > 0) {
+            commit(con);
+        } else {
+            rollback(con);
+        }
+
+        close(con);
+
+        return result;
+    }
 
 }
