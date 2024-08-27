@@ -20,7 +20,13 @@ public class DeleteEmpServlet extends HttpServlet {
         int result = new EmployeeService().deleteEmp(empId);
 
         String path = "";
+        if (result > 0) {
+            path = "/WEB-INF/views/common/successPage.jsp";
+        } else {
+            path = "/WEB-INF/views/common/errorPage.jsp";
+            request.setAttribute("message", "직원 삭제 실패!");
+        }
 
+        request.getRequestDispatcher(path).forward(request, response);
     }
-
 }
