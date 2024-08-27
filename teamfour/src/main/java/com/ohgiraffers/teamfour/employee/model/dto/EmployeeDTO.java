@@ -170,5 +170,6 @@ public class EmployeeDTO implements java.io.Serializable {
                 ", entDate=" + entDate +
                 ", entYn='" + entYn + '\'' +
                 '}';
+
     }
 }
